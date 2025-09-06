@@ -1,0 +1,73 @@
+body {
+    font-family: 'Mitr', sans-serif;
+    background-color: #F0F9FF; /* Light Sky Blue Background */
+}
+.card {
+    background-color: #FFFFFF;
+    border: 1px solid #E0F2FE; /* Lighter Sky Blue */
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.timeline-item {
+    position: relative;
+    padding-left: 2.5rem;
+    padding-bottom: 2rem;
+    border-left: 2px solid #7DD3FC; /* Sky Blue 300 */
+}
+.timeline-icon {
+    position: absolute;
+    left: -1.1rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #EF4444; /* Autumn Red 500 */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+/* Animation Styles */
+.animated-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.animated-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.highlight-icon {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.highlight-icon.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.day-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.day-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-item-no-border {
+    border-left: 2px solid transparent !important;
+}

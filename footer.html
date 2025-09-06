@@ -1,0 +1,30 @@
+    <!-- Footer -->
+    <footer class="bg-sky-700 text-white text-center p-8">
+        <p class="text-2xl mb-2">ทริปนี้...ความสุขและความทรงจำ</p>
+        <p class="text-2xl font-semibold mb-4">จะตราตรึงในใจของเราตลอดไป</p>
+        <p class="text-sky-100">#จิรวิวัฒน์ภัทรตะลุยญี่ปุ่น</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedItems = document.querySelectorAll('.animated-item, .highlight-icon');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+
+</body>
+</html>

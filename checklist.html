@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Trip 2025 - Checklist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s;
+        }
+        .checklist-item:hover {
+            background-color: #f0f9ff; /* Light Sky Blue */
+        }
+        .checklist-item input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 1.5rem;
+            height: 1.5rem;
+            border: 2px solid #38b2ac; /* Teal 500 */
+            border-radius: 0.25rem;
+            margin-right: 0.75rem;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checklist-item input[type="checkbox"]:checked {
+            background-color: #38b2ac; /* Teal 500 */
+            border-color: #38b2ac;
+        }
+        .checklist-item input[type="checkbox"]:checked::after {
+            content: '✔';
+            color: white;
+            font-size: 1rem;
+        }
+        .checklist-item label {
+            flex-grow: 1;
+            cursor: pointer;
+        }
+        .checklist-item input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: #6b7280; /* Gray 500 */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-sky-600 text-white">
+        <div class="min-h-[40vh] flex flex-col justify-center items-center text-center p-8">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">บันทึกการเดินทาง</h1>
+            <h2 class="text-2xl md:text-3xl font-light mb-6">สุขใจไปกับใบไม้แดง ณ แดนอาทิตย์อุทัย</h2>
+            <div class="bg-white bg-opacity-90 text-sky-800 font-semibold py-2 px-6 rounded-full">
+                <p>Jirawiwatpat Trip</p>
+                <p class="text-lg">14 - 22 พฤศจิกายน 2568</p>
+            </div>
+            <div class="mt-8 flex gap-4">
+                <a href="index.html" class="bg-white text-sky-600 font-semibold py-2 px-6 rounded-full hover:bg-sky-100 transition-colors">🏠 Home</a>
+                <a href="plan.html" class="bg-white text-sky-600 font-semibold py-2 px-6 rounded-full hover:bg-sky-100 transition-colors">🗓️ Plan</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto max-w-5xl p-6 md:p-12">
+        <section class="mb-16">
+            <h3 class="text-3xl font-semibold text-sky-700 mb-8 text-center animated-item">เช็คลิสต์เตรียมตัวสำหรับทริปญี่ปุ่น</h3>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h4 class="text-2xl font-semibold text-sky-600 mb-4">หมวด 1: สิ่งที่ต้องทำล่วงหน้า (1-2 เดือนก่อนเดินทาง)</h4>
+                <h5 class="text-xl font-medium text-gray-700 mb-3">ด้านเอกสารสำคัญ 📂</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="passport">
+                        <label for="passport">หนังสือเดินทาง (Passport): ตรวจสอบว่าของทุกคนมีอายุคงเหลือไม่ต่ำกว่า 6 เดือนนับจากวันเดินทางกลับ</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="international_driving_permit">
+                        <label for="international_driving_permit">ใบขับขี่สากล: สำหรับผู้ที่จะขับรถ อย่าลืมไปทำที่กรมการขนส่งทางบก (จำเป็นมากสำหรับการเช่ารถ)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="document_copies">
+                        <label for="document_copies">ถ่ายสำเนาเอกสาร: ถ่ายเอกสารหรือถ่ายรูป Passport, ใบขับขี่สากล, และใบจองต่างๆ เก็บไว้ในมือถือหรืออีเมล เผื่อกรณีฉุกเฉิน</label>
+                    </div>
+                </div>
+
+                <h5 class="text-xl font-medium text-gray-700 mb-3 mt-6">ด้านสุขภาพ 🏥</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="personal_medication">
+                        <label for="personal_medication">ยาประจำตัว: เตรียมยาประจำตัวของคุณพ่อคุณแม่และของทุกคนให้เพียงพอสำหรับทั้งทริป (และเผื่ออีกเล็กน้อย)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="medical_certificate">
+                        <label for="medical_certificate">(แนะนำ) ใบรับรองแพทย์: หากมียาที่ต้องใช้เป็นพิเศษ ควรมีใบรับรองแพทย์เป็นภาษาอังกฤษกำกับ เผื่อกรณีต้องสำแดงที่สนามบิน</label>
+                    </div>
+                </div>
+
+                <h5 class="text-xl font-medium text-gray-700 mb-3 mt-6">ด้านการเงินและการสื่อสาร 💳</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="exchange_yen">
+                        <label for="exchange_yen">แลกเงินเยน: เตรียมเงินสด (JPY) ให้พร้อมสำหรับค่าใช้จ่ายเล็กๆ น้อยๆ</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="travel_sim_card">
+                        <label for="travel_sim_card">ซื้อ Travel SIM Card: เพื่อให้สามารถใช้อินเทอร์เน็ตได้ตลอดทริป</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h4 class="text-2xl font-semibold text-sky-600 mb-4">หมวด 2: การจัดกระเป๋า (1-2 สัปดาห์ก่อนเดินทาง)</h4>
+                <h5 class="text-xl font-medium text-gray-700 mb-3">เสื้อผ้า (เน้นการแต่งตัวเป็นชั้นๆ หรือ Layering) 🧥</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="base_layer">
+                        <label for="base_layer">ชั้นในกันหนาว (Base Layer): เช่น เสื้อแขนยาว/กางเกงลองจอห์น Heattech (คนละ 1-2 ชุด)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="mid_layer">
+                        <label for="mid_layer">ชั้นกลาง (Mid Layer): เสื้อไหมพรม, หรือเสื้อ Fleece (1-2 ตัว)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="outer_layer">
+                        <label for="outer_layer">ชั้นนอก (Outer Layer): เสื้อขนเป็ด เสื้อแจ็คเก็ตกันลม/กันหนาว (1 ตัว)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="pants">
+                        <label for="pants">กางเกง: กางเกงขายาวที่ใส่สบาย (2-3 ตัว)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="socks">
+                        <label for="socks">ถุงเท้า: เตรียมถุงเท้าหนาๆ ไปด้วย</label>
+                    </div>
+                </div>
+
+                <h5 class="text-xl font-medium text-gray-700 mb-3 mt-6">รองเท้า (สำคัญที่สุด!) 👟</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="comfortable_shoes">
+                        <label for="comfortable_shoes">รองเท้าที่ใส่สบายที่สุด: ควรเป็นรองเท้าผ้าใบหรือรองเท้าสำหรับเดินที่ใส่จนคุ้นเคยแล้ว (ห้ามใส่คู่ใหม่ไปเด็ดขาด!)</label>
+                    </div>
+                </div>
+
+                <h5 class="text-xl font-medium text-gray-700 mb-3 mt-6">ของใช้ส่วนตัวและยา 💊</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="medication_hand_carry">
+                        <label for="medication_hand_carry">ยาประจำตัว: จัดใส่กระเป๋าถือขึ้นเครื่อง (Hand Carry) ห้ามโหลดใต้ท้องเครื่องเด็ดขาด</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="common_meds">
+                        <label for="common_meds">ชุดยาสามัญ: ยาแก้ปวด, ยาแก้แพ้, พลาสเตอร์ยา, ยาทาแก้ฟกช้ำ</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="moisturizing_products">
+                        <label for="moisturizing_products">ผลิตภัณฑ์ให้ความชุ่มชื้น: ลิปมัน, ครีมทามือ, โลชั่นทาผิว (อากาศที่ญี่ปุ่นช่วงนั้นจะแห้งมาก)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="toiletries">
+                        <label for="toiletries">ของใช้ในห้องน้ำ: แปรงสีฟัน, ยาสีฟัน และของใช้ส่วนตัวอื่นๆ</label>
+                    </div>
+                </div>
+
+                <h5 class="text-xl font-medium text-gray-700 mb-3 mt-6">อุปกรณ์อิเล็กทรอนิกส์ 🔌</h5>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="universal_adapter">
+                        <label for="universal_adapter">หัวแปลงปลั๊กไฟ (Universal Adapter): ญี่ปุ่นใช้ปลั๊กขาแบน (Type A)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="power_bank">
+                        <label for="power_bank">พาวเวอร์แบงค์ (Power Bank): จำเป็นมากสำหรับการเดินทางทั้งวัน</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="charging_cables">
+                        <label for="charging_cables">สายชาร์จ: สำหรับโทรศัพท์และอุปกรณ์อื่นๆ</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h4 class="text-2xl font-semibold text-sky-600 mb-4">หมวด 3: ตรวจสอบครั้งสุดท้าย (1-2 วันก่อนเดินทาง)</h4>
+                <div class="space-y-2">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="charge_devices">
+                        <label for="charge_devices">ชาร์จแบตอุปกรณ์ทุกอย่างให้เต็ม: โทรศัพท์, พาวเวอร์แบงค์</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="download_apps">
+                        <label for="download_apps">ดาวน์โหลดแอปที่จำเป็น: Google Maps (โหลดแผนที่แบบ Offline), Google Translate</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="hand_carry_bag">
+                        <label for="hand_carry_bag">จัดกระเป๋าถือขึ้นเครื่อง: ใส่เอกสารสำคัญ, เงิน, ยาประจำตัว, พาวเวอร์แบงค์, และของมีค่าอื่นๆ</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check_luggage_weight">
+                        <label for="check_luggage_weight">ตรวจสอบน้ำหนักกระเป๋า: เช็คให้แน่ใจว่าน้ำหนักไม่เกินที่สายการบินกำหนด</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="confirm_flight">
+                        <label for="confirm_flight">ยืนยันเที่ยวบินอีกครั้ง</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="get_enough_rest">
+                        <label for="get_enough_rest">พักผ่อนให้เพียงพอ!</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sky-700 text-white text-center p-8">
+        <p class="text-2xl mb-2">ทริปนี้...ความสุขและความทรงจำ</p>
+        <p class="text-2xl font-semibold mb-4">จะตราตรึงในใจของเราตลอดไป</p>
+        <p class="text-sky-100">#จิรวิวัฒน์ภัทรตะลุยญี่ปุ่น</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+
+            // Load saved state from localStorage
+            checkboxes.forEach(checkbox => {
+                const savedState = localStorage.getItem(checkbox.id);
+                if (savedState === 'checked') {
+                    checkbox.checked = true;
+                    checkbox.nextElementSibling.classList.add('line-through', 'text-gray-500');
+                }
+            });
+
+            // Save state to localStorage on change
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        localStorage.setItem(this.id, 'checked');
+                        this.nextElementSibling.classList.add('line-through', 'text-gray-500');
+                    } else {
+                        localStorage.removeItem(this.id);
+                        this.nextElementSibling.classList.remove('line-through', 'text-gray-500');
+                    }
+                });
+            });
+
+            // Handle click on the whole item to toggle checkbox
+            document.querySelectorAll('.checklist-item').forEach(item => {
+                item.addEventListener('click', function(event) {
+                    // Only toggle if the click wasn't directly on the checkbox
+                    if (event.target.tagName !== 'INPUT') {
+                        const checkbox = this.querySelector('input[type="checkbox"]');
+                        checkbox.checked = !checkbox.checked;
+                        checkbox.dispatchEvent(new Event('change')); // Trigger change event manually
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
