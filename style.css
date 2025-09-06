@@ -184,15 +184,16 @@ header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-f
 
     header.header-minimized .mt-8.flex.gap-4 {
         flex-direction: row; /* Keep navigation links in a row when minimized on mobile */
-        gap: 0.5rem; /* Smaller gap */
+        gap: 0.2rem; /* Even smaller gap */
         margin-top: 0; /* Remove top margin */
-        justify-content: flex-end; /* Align navigation links to the right */
+        justify-content: center; /* Center navigation links */
         width: auto; /* Auto width for navigation links */
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
     header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
         width: auto; /* Auto width for buttons when minimized on mobile */
-        padding: 0.3rem 0.8rem; /* Even smaller padding */
-        font-size: 0.8rem; /* Smaller font size for buttons */
+        padding: 0.2rem 0.5rem; /* Even smaller padding */
+        font-size: 0.7rem; /* Even smaller font size for buttons */
     }
 }
