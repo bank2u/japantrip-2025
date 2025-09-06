@@ -34,7 +34,63 @@ body {
     font-size: 1rem;
     font-weight: bold;
 }
-/* Animation Styles */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    transition: all 0.3s ease-in-out;
+    /* Initial state for the header */
+    padding: 2rem 0; /* Default padding */
+}
+
+header .header-content {
+    min-height: 40vh; /* Default min-height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+header.header-minimized {
+    padding: 0.5rem 0; /* Minimized padding */
+    background-color: rgba(14, 116, 144, 0.95); /* Slightly darker/more opaque when minimized */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header.header-minimized .header-content {
+    min-height: 50px; /* Set a fixed min-height for minimized header content */
+    padding: 0.5rem 1rem; /* Minimized padding for content */
+    flex-direction: row; /* Arrange items in a row */
+    justify-content: space-between; /* Space out items */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+header.header-minimized h1 {
+    font-size: 1.5rem; /* Smaller font size for h1 when minimized */
+    margin-bottom: 0;
+}
+
+header.header-minimized h2 {
+    display: none; /* Hide h2 when minimized */
+}
+
+header.header-minimized .bg-white {
+    display: none; /* Hide date/trip info when minimized */
+}
+
+header.header-minimized .mt-8.flex.gap-4 {
+    margin-top: 0; /* Remove margin when minimized */
+    flex-direction: row; /* Keep navigation links in a row */
+    gap: 0.5rem; /* Smaller gap */
+}
+
+header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
+    padding: 0.3rem 0.8rem; /* Smaller padding for navigation buttons */
+    font-size: 0.8rem; /* Smaller font size for buttons */
+}
 .animated-item {
     opacity: 0;
     transform: translateY(20px);
@@ -70,4 +126,73 @@ body {
 
 .timeline-item-no-border {
     border-left: 2px solid transparent !important;
+}
+
+/* Responsive adjustments for header */
+@media (max-width: 768px) {
+    header .header-content {
+        min-height: 25vh; /* Adjust minimum height for smaller screens */
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    header h1 {
+        font-size: 2.5rem; /* Smaller font size for h1 on mobile */
+    }
+
+    header h2 {
+        font-size: 1.5rem; /* Smaller font size for h2 on mobile */
+    }
+
+    header .bg-white.bg-opacity-90 {
+        padding: 0.5rem 1rem; /* Smaller padding for the white box on mobile */
+    }
+
+    header .mt-8.flex.gap-4 {
+        flex-direction: column; /* Stack navigation links vertically on mobile */
+        gap: 0.5rem; /* Smaller gap between stacked links */
+        margin-top: 1rem; /* Adjust margin for stacked links */
+    }
+
+    header .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
+        width: 80%; /* Make buttons take more width on mobile */
+        margin: 0 auto; /* Center buttons */
+        text-align: center;
+    }
+}
+
+/* Specific adjustments for minimized header on mobile */
+@media (max-width: 768px) {
+    header.header-minimized .header-content {
+        min-height: 50px; /* Set a fixed min-height for minimized header content on mobile */
+        padding: 0.5rem 1rem; /* Adjust padding */
+        flex-direction: row; /* Keep navigation links in a row when minimized on mobile */
+        justify-content: space-between; /* Space out items */
+        flex-wrap: wrap; /* Allow wrapping */
+    }
+
+    header.header-minimized h1 {
+        font-size: 1.2rem; /* Even smaller font size for h1 when minimized on mobile */
+    }
+
+    header.header-minimized h2 {
+        display: none; /* Hide h2 when minimized on mobile */
+    }
+
+    header.header-minimized .bg-white.bg-opacity-90 {
+        display: none; /* Hide date/trip info when minimized on mobile */
+    }
+
+    header.header-minimized .mt-8.flex.gap-4 {
+        flex-direction: row; /* Keep navigation links in a row when minimized on mobile */
+        gap: 0.5rem; /* Smaller gap */
+        margin-top: 0; /* Remove top margin */
+        justify-content: flex-end; /* Align navigation links to the right */
+        width: auto; /* Auto width for navigation links */
+    }
+
+    header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
+        width: auto; /* Auto width for buttons when minimized on mobile */
+        padding: 0.3rem 0.8rem; /* Even smaller padding */
+        font-size: 0.8rem; /* Smaller font size for buttons */
+    }
 }
