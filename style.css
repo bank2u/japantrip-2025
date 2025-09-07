@@ -174,6 +174,7 @@ header.header-minimized nav {
         flex-direction: row; /* Keep navigation links in a row when minimized on mobile */
         justify-content: space-between; /* Space out items */
         flex-wrap: wrap; /* Allow wrapping */
+        position: relative; /* Ensure positioning context for absolute children */
     }
 
     header.header-minimized h1 {
@@ -188,13 +189,16 @@ header.header-minimized nav {
         display: none; /* Hide date/trip info when minimized on mobile */
     }
 
-    header.header-minimized .mt-8.flex.gap-4 {
-        flex-direction: row; /* Keep navigation links in a row when minimized on mobile */
-        gap: 0.2rem; /* Even smaller gap */
-        margin-top: 0; /* Remove top margin */
-        justify-content: center; /* Center navigation links */
-        width: auto; /* Auto width for navigation links */
-        flex-wrap: nowrap; /* Prevent wrapping */
+    header.header-minimized .mobile-minimized-nav { /* New rule for the navigation */
+        position: absolute; /* Position relative to header-content */
+        top: 50%; /* Adjust as needed to be "under the title" */
+        right: 1rem; /* 1rem from the right edge */
+        transform: translateY(-50%); /* Vertically center it relative to its top position */
+        flex-direction: row; /* Keep navigation links in a row */
+        gap: 0.5rem; /* Adjust gap between items */
+        margin-top: 0; /* Remove any default margin */
+        justify-content: flex-end; /* Align items to the right */
+        width: auto; /* Allow content to define width */
     }
 
     header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
