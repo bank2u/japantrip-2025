@@ -55,41 +55,29 @@ header .header-content {
 }
 
 header.header-minimized {
-    padding: 0.5rem 0; /* Minimized padding */
-    background-color: rgba(14, 116, 144, 0.95); /* Slightly darker/more opaque when minimized */
+    padding: 0.5rem 0;
+    background-color: rgba(14, 116, 144, 0.95);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 header.header-minimized .header-content {
-    min-height: 50px; /* Set a fixed min-height for minimized header content */
-    padding: 0.5rem 1rem; /* Minimized padding for content */
-    flex-direction: row; /* Arrange items in a row */
+    min-height: 50px;
+    padding: 0.5rem 1rem;
+    flex-direction: row; /* Change to row for minimal view */
     justify-content: space-between; /* Space out items */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    align-items: center; /* Center items vertically */
 }
 
-header.header-minimized h1 {
-    font-size: 1.5rem; /* Smaller font size for h1 when minimized */
-    margin-bottom: 0;
+header.header-minimized .header-full-content {
+    display: none; /* Hide the full content when minimized */
 }
 
-header.header-minimized h2 {
-    display: none; /* Hide h2 when minimized */
+header.header-minimized .header-minimized-title {
+    display: block; /* Show the small title when minimized */
 }
 
-header.header-minimized .bg-white {
-    display: none; /* Hide date/trip info when minimized */
-}
-
-header.header-minimized .mt-8.flex.gap-4 {
-    margin-top: 0; /* Remove margin when minimized */
-    flex-direction: row; /* Keep navigation links in a row */
-    gap: 0.5rem; /* Smaller gap */
-}
-
-header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
-    padding: 0.3rem 0.8rem; /* Smaller padding for navigation buttons */
-    font-size: 0.8rem; /* Smaller font size for buttons */
+header.header-minimized nav {
+    margin-top: 0; /* Remove top margin when minimized */
 }
 .animated-item {
     opacity: 0;
@@ -196,4 +184,8 @@ header.header-minimized .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-f
         padding: 0.2rem 0.5rem; /* Even smaller padding */
         font-size: 0.7rem; /* Even smaller font size for buttons */
     }
+}
+
+.header-minimized-title {
+    display: none;
 }
