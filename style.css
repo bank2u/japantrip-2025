@@ -45,11 +45,10 @@ body {
 header {
     transition: all 0.3s ease-in-out;
     /* Initial state for the header */
-    padding: 2rem 0; /* Default padding */
+    padding: 0.5rem 0; /* Default padding */
 }
 
 header .header-content {
-    min-height: 40vh; /* Default min-height */
     display: flex;
     flex-direction: column;
     justify-content: center;
