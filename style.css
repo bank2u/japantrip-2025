@@ -138,10 +138,9 @@ header.header-minimized nav {
         padding: 0.5rem 1rem; /* Smaller padding for the white box on mobile */
     }
 
-    header .mt-8.flex.gap-4 {
-        flex-direction: column; /* Stack navigation links vertically on mobile */
-        gap: 0.5rem; /* Smaller gap between stacked links */
-        margin-top: 1rem; /* Adjust margin for stacked links */
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     header .bg-white.text-sky-600.font-semibold.py-2.px-6.rounded-full {
