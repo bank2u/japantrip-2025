@@ -13,10 +13,7 @@
 </head>
 <body class="text-gray-800">
 
-        <div id="header-placeholder"
-            data-h1="แผนการเดินทาง 🗺️"
-            data-h2="รายละเอียดการเดินทางแต่ละวัน">
-        </div>
+        <div id="header-placeholder" data-h1="แผนการเดินทาง 🗺️" data-h2="รายละเอียดการเดินทางแต่ละวัน"></div>
 
     <!-- Main Content -->
     <main class="container mx-auto max-w-5xl p-6 md:p-12">
@@ -138,27 +135,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="load_components.js"></script>
-    <script>
-        // Original script from the page, excluding the header/footer related parts
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedItems = document.querySelectorAll('.animated-item, .highlight-icon');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            animatedItems.forEach(item => {
-                observer.observe(item);
-            });
-        });
-    </script>
+    <script src="animations.js"></script>
 
 </body>
 </html>

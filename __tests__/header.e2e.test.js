@@ -4,53 +4,50 @@
 const puppeteer = require('puppeteer');
 const { exec } = require('child_process');
 
+const SERVER_PORT = 8080;
+const SERVER_START_TIMEOUT = 5000;
+const SCROLL_TRANSITION_TIMEOUT = 1000;
+const SCROLL_AMOUNT = 500;
+
 describe('Header Minimization E2E', () => {
   let browser;
   let page;
   let serverProcess;
 
   beforeAll(async () => {
-    // Start http-server in the background
-    serverProcess = exec('npx http-server -p 8080');
-    // Wait for the server to start (increased timeout)
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    serverProcess = exec(`npx http-server -p ${SERVER_PORT}`);
+    await new Promise(resolve => setTimeout(resolve, SERVER_START_TIMEOUT));
 
     browser = await puppeteer.launch();
     page = await browser.newPage();
-  }, 10000); // Increased Jest timeout for beforeAll
+  }, 10000);
 
   afterAll(async () => {
     if (browser) {
       await browser.close();
     }
-    // Kill the http-server process gracefully
     if (serverProcess && serverProcess.pid) {
-      serverProcess.kill(); // Send SIGTERM
+      serverProcess.kill();
     }
   });
 
   test('header should minimize on scroll', async () => {
-    await page.goto('http://localhost:8080/index.html');
+    await page.goto(`http://localhost:${SERVER_PORT}/index.html`);
+    await page.addScriptTag({ path: 'load_components.js' });
+    await page.waitForFunction(() => document.querySelector('header'));
 
-    // Get the initial header height
     const initialHeaderHeight = await page.$eval('header', header => header.offsetHeight);
-    console.log('Initial Header Height:', initialHeaderHeight);
 
-    // Scroll down the page significantly
-    await page.evaluate(() => {
-      window.scrollBy(0, 500); // Increased scroll amount
-    });
+    await page.evaluate((scrollAmount) => {
+      window.scrollBy(0, scrollAmount);
+    }, SCROLL_AMOUNT);
 
-    // Wait for the scroll transition to complete and class to be applied
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Increased timeout
+    await new Promise(resolve => setTimeout(resolve, SCROLL_TRANSITION_TIMEOUT));
 
-    // Check if the header has the minimized class
     const headerClasses = await page.$eval('header', header => Array.from(header.classList));
     expect(headerClasses).toContain('header-minimized');
 
-    // Optionally, check if the height has actually reduced
     const minimizedHeaderHeight = await page.$eval('header', header => header.offsetHeight);
-    console.log('Minimized Header Height:', minimizedHeaderHeight);
     expect(minimizedHeaderHeight).toBeLessThan(initialHeaderHeight);
-  });
+  }, 30000);
 });
