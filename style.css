@@ -1,3 +1,11 @@
+html, body {
+    height: 100%; /* Ensure they are tall enough to scroll */
+    overflow: visible; /* Ensure no hidden overflow */
+    transform: none !important; /* Neutralize transform issues */
+    display: block; /* Ensure they are block-level elements */
+    align-items: stretch; /* Neutralize flexbox align-items interference */
+}
+
 body {
     font-family: 'Mitr', sans-serif;
     background-color: #F0F9FF; /* Light Sky Blue Background */
@@ -35,8 +43,6 @@ body {
     font-weight: bold;
 }
 header {
-    top: 0;
-    z-index: 50;
     transition: all 0.3s ease-in-out;
     /* Initial state for the header */
     padding: 2rem 0; /* Default padding */
@@ -187,4 +193,9 @@ header.header-minimized nav {
 
 .header-minimized-title {
     display: none;
+}
+
+#header-placeholder {
+    overflow: visible;
+    transform: none !important;
 }

@@ -41,12 +41,30 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        // Get the initial height of the header
+        const headerHeight = headerElement.offsetHeight;
+        let spacer = document.createElement('div');
+        spacer.style.height = headerHeight + 'px';
+        spacer.style.display = 'none'; // Initially hidden
+        headerPlaceholder.parentNode.insertBefore(spacer, headerPlaceholder.nextSibling);
+
+
         // Add scroll event listener for sticky header
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) { // Adjust this value as needed
-                headerElement.classList.add('header-minimized');
+            if (window.scrollY > 50) { // Adjust this value as needed for when it becomes fixed
+                headerElement.classList.add('header-minimized'); // Keep existing minimized class
+                headerElement.style.position = 'fixed';
+                headerElement.style.top = '0';
+                headerElement.style.width = '100%'; // Ensure it spans full width
+                headerElement.style.zIndex = '50'; // Ensure it's above other content
+                spacer.style.display = 'block'; // Show spacer to prevent content jump
             } else {
                 headerElement.classList.remove('header-minimized');
+                headerElement.style.position = 'static'; // Or 'relative' depending on original flow
+                headerElement.style.top = '';
+                headerElement.style.width = '';
+                headerElement.style.zIndex = '';
+                spacer.style.display = 'none'; // Hide spacer
             }
         });
     });
