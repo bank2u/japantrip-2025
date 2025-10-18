@@ -264,3 +264,20 @@ header.header-minimized nav {
     text-decoration: line-through;
     color: #6b7280; /* Gray 500 */
 }
+
+/* Side Panel Styles */
+#side-panel-overlay {
+    transition: opacity 0.3s ease-in-out;
+}
+
+#side-panel {
+    transition: transform 0.3s ease-in-out;
+}
+
+.side-panel-open {
+    transform: translateX(0) !important;
+}
+
+.timeline-item {
+    cursor: pointer;
+}

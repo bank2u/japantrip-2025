@@ -81,7 +81,7 @@
             </h3>
             <div class="relative">
                 <!-- Day 1 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="1">
                     <div class="timeline-icon">1</div>
                     <h5 class="font-bold text-xl text-red-600">สู่แดนอาทิตย์อุทัย (14 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -92,7 +92,7 @@
                     </ul>
                 </div>
                 <!-- Day 2 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="2">
                     <div class="timeline-icon">2</div>
                     <h5 class="font-bold text-xl text-red-600">วันสบายๆ ที่ฟูจิฝั่งตะวันออก (15 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -105,7 +105,7 @@
                     </ul>
                 </div>
                 <!-- Day 3 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="3">
                     <div class="timeline-icon">3</div>
                     <h5 class="font-bold text-xl text-red-600">Road Trip ชมวิว 4 ทะเลสาบ (16 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -118,7 +118,7 @@
                     </ul>
                 </div>
                 <!-- Day 4 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="4">
                     <div class="timeline-icon">4</div>
                     <h5 class="font-bold text-xl text-red-600">เก็บตกฟูจิ และเดินทางสู่ฮาโกเน่ (17 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -131,7 +131,7 @@
                     </ul>
                 </div>
                 <!-- Day 5 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="5">
                     <div class="timeline-icon">5</div>
                     <h5 class="font-bold text-xl text-red-600">ตะลุย Hakone Loop และเข้าสู่โตเกียว (18 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -142,7 +142,7 @@
                     </ul>
                 </div>
                 <!-- Day 6 (Updated Plan) -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="6">
                     <div class="timeline-icon">6</div>
                     <h5 class="font-bold text-xl text-red-600">วันตะลุยโซนอ่าวโตเกียว (19 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -152,7 +152,7 @@
                     </ul>
                 </div>
                 <!-- Day 7 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="7">
                     <div class="timeline-icon">7</div>
                     <h5 class="font-bold text-xl text-red-600">Day Trip เมืองเก่าคามาคุระ (20 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -161,7 +161,7 @@
                     </ul>
                 </div>
                 <!-- Day 8 -->
-                <div class="timeline-item animated-item">
+                <div class="timeline-item animated-item" data-day="8">
                     <div class="timeline-icon">8</div>
                     <h5 class="font-bold text-xl text-red-600">จากขุนเขาสู่ใจกลางเมือง (21 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -172,7 +172,7 @@
                     </ul>
                 </div>
                 <!-- Day 9 -->
-                <div class="timeline-item animated-item timeline-item-no-border">
+                <div class="timeline-item animated-item timeline-item-no-border" data-day="9">
                     <div class="timeline-icon">9</div>
                     <h5 class="font-bold text-xl text-red-600">เก็บความทรงจำวันสุดท้าย (22 พ.ย.)</h5>
                     <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
@@ -223,6 +223,131 @@
 
     <script src="load_components.js"></script>
     <script src="animations.js"></script>
+
+    <!-- Side Panel -->
+    <div id="side-panel-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    <div id="side-panel" class="fixed top-0 right-0 h-full w-full md:w-1/3 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h4 id="side-panel-title" class="text-2xl font-semibold text-sky-700"></h4>
+                <button id="close-side-panel" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            <div id="side-panel-content"></div>
+        </div>
+    </div>
+
+    <!-- Hidden Details -->
+    <div id="day-1-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>~04:40 – 15:05:</b> ✈️ เดินทางจากกรุงเทพฯ → สนามบินนาริตะ (Narita Airport / 成田空港)</li>
+            <li><b>15:05 – 17:00:</b> 🛂 ผ่านขั้นตอนตรวจคนเข้าเมืองและรับรถเช่า</li>
+            <li><b>17:00 – 20:00:</b> 🛣️ ขับรถสู่ที่พักในเมืองฟูจิโยชิดะ (Fujiyoshida / 富士吉田市)</li>
+            <li><b>20:00 เป็นต้นไป:</b> 🏡 เช็คอินและรับประทานอาหารค่ำ</li>
+        </ul>
+    </div>
+    <div id="day-2-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>07:00 – 09:00:</b> ⛩️ เยี่ยมชม <b>เจดีย์แดงชูเรโตะ (Chureito Pagoda / 忠霊塔)</b></li>
+            <li><b>09:30 – 11:00:</b> 💧 เดินเล่นที่ <b>หมู่บ้านน้ำใส โอชิโนะฮักไก (Oshino Hakkai / 忍野八海)</b></li>
+            <li><b>11:00 – 12:30:</b> 🍽️ รับประทานอาหารกลางวัน</li>
+            <li><b>12:30 – 15:00:</b> 🌅 เที่ยวชมวิว <b>ทะเลสาบยามานาคาโกะ (Lake Yamanakako / 山中湖)</b></li>
+            <li><b>15:00 – 17:30:</b> 🏡 กลับที่พักเพื่อพักผ่อน</li>
+            <li><b>17:30 เป็นต้นไป:</b> 🌃 ชม <b>อุโมงค์ใบเมเปิ้ล (Momiji Tunnel / もみじ回廊)</b> ยามค่ำคืน</li>
+        </ul>
+    </div>
+    <div id="day-3-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>07:00 – 08:30:</b> 🍁 เช็คเอาท์ และแวะ <b>อุโมงค์ใบเมเปิ้ล (Momiji Tunnel / もみじ回廊)</b> อีกครั้งในตอนกลางวัน<br>ต่อด้วยเที่ยว <b>สวนโออิชิ (Oishi Park / 大石公園)</b></li>
+            <li><b>08:30 – 10:45:</b> 🚗 ขับรถชมวิวรอบ <b>ทะเลสาบไซโก (Lake Saiko / 西湖)</b>, <br><b>โชจิ (Lake Shoji / 精進湖)</b> และ <b>โมโตสุ (Lake Motosu / 本栖湖)</b></li>
+            <li><b>11:00 – 12:30:</b> 🍽️ รับประทานอาหารกลางวันบริเวณ <b>ทะเลสาบทานูกิ (Lake Tanuki / 田貫湖)</b></li>
+            <li><b>12:30 – 14:15:</b> 🏞️ ชม <b>ทะเลสาบทานูกิ (Lake Tanuki)</b> และ <b>น้ำตกชิราอิโตะ (Shiraito Falls / 白糸の滝)</b></li>
+            <li><b>14:45 เป็นต้นไป:</b> 🛏️ เช็คอินที่โรงแรมใน <b>เมืองฟูจิโนะมิยะ (Fujinomiya / 富士宮市)</b></li>
+        </ul>
+    </div>
+    <div id="day-4-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>07:30 – 09:45:</b> ⛩️ เยี่ยมชม <b>ศาลเจ้าฟูจิซัง ฮงกุ เซ็นเก็น ไทฉะ (Fujisan Hongū Sengen Taisha / 富士山本宮浅間大社)</b></li>
+            <li><b>10:30 – 13:30:</b> 🌉 เดินทางไป <b>Mishima Skywalk (三島スカイウォーク)</b> และรับประทานอาหารกลางวัน</li>
+            <li><b>14:30 – 16:00:</b> 🔑 คืนรถเช่าที่ <b>ฮาโกเน่-ยุโมโตะ (Hakone-Yumoto / 箱根湯本)</b></li>
+            <li><b>16:00 เป็นต้นไป:</b> 🎟️ ซื้อ <b>Hakone Free Pass</b> และพักผ่อนแช่ออนเซ็น ♨️</li>
+        </ul>
+    </div>
+    <div id="day-5-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>08:00 – 08:30:</b> 🧳 เช็คเอาท์และฝากกระเป๋าไว้ที่โรงแรม</li>
+            <li><b>08:30 – 11:00:</b> 🗺️ (รถไฟ/Ropeway) ขึ้นไปยัง <b>หุบเขาโอวาคุดานิ (Owakudani Valley / 大涌谷)</b></li>
+            <li><b>11:00 – 13:00:</b> 🚢 (เรือโจรสลัด) ล่องเรือใน <b>ทะเลสาบอาชิ (Lake Ashi / 芦ノ湖)</b> พร้อมรับประทานอาหารกลางวัน</li>
+            <li><b>13:00 – 14:30:</b> ⛩️ เยี่ยมชม <b>ศาลเจ้าฮาโกเน่ (Hakone Shrine / 箱根神社)</b></li>
+            <li><b>14:30 – 16:00:</b> 🧳 เดินทางกลับไปเอากระเป๋าที่โรงแรม</li>
+            <li><b>16:00 – 18:30:</b> 🚄 เดินทางสู่ <b>โตเกียว (Tokyo / 東京)</b> ด้วยรถไฟชินคันเซ็น</li>
+            <li><b>18:30 เป็นต้นไป:</b> 🛏️ เช็คอินเข้าที่พักย่าน <b>อุเอโนะ (Ueno / 上野)</b></li>
+        </ul>
+    </div>
+    <div id="day-6-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>08:30 – 10:30:</b> 🗼 เดินทางไป <b>โตเกียวทาวเวอร์ (Tokyo Tower / 東京タワー)</b></li>
+            <li><b>11:00 – 13:30:</b> 🍣 รับประทานอาหารกลางวันที่ <b>ตลาดปลาโทโยสุ (Toyosu Market / 豊洲市場)</b></li>
+            <li><b>14:00 เป็นต้นไป:</b> 🌉 นั่งรถไฟลอยฟ้า <b>Yurikamome Line (ゆりかもめ)</b> ไปยัง <b>เกาะโอไดบะ (Odaiba / お台場)</b></li>
+        </ul>
+    </div>
+    <div id="day-7-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>06:30 – 16:30:</b> 🚆 เดินทางไป <b>คามาคุระ (Kamakura / 鎌倉)</b><br>เที่ยวชมจุดต่างๆ เช่น<br>- <b>พระใหญ่ไดบุสึ (Great Buddha of Kamakura / 鎌倉大仏)</b><br>- <b>วัดฮาเซะเดระ (Hasedera Temple / 長谷寺)</b><br>- <b>ศาลเจ้าสึรุกาโอกะ ฮาจิมังงู (Tsurugaoka Hachimangu Shrine / 鶴岡八幡宮)</b></li>
+            <li><b>16:30 เป็นต้นไป:</b> 🚆 เดินทางกลับที่พัก</li>
+        </ul>
+    </div>
+    <div id="day-8-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>08:00 – 15:00:</b> ⛰️ เที่ยวชม <b>ภูเขาทาคาโอะ (Mount Takao / 高尾山)</b></li>
+            <li><b>16:30 เป็นต้นไป:</b> 🚶‍♂️ สัมผัสบรรยากาศย่าน <b>ห้าแยกชิบูย่า (Shibuya Crossing / 渋谷スクランブル交差点)</b></li>
+        </ul>
+    </div>
+    <div id="day-9-details" style="display: none;">
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mt-2">
+            <li><b>07:30 – 10:00:</b> 🏯 เช็คเอาท์ (ฝากกระเป๋า) แล้วไปเที่ยว <b>วัดเซ็นโซจิ (Sensoji Temple / 浅草寺)</b> ที่ <b>อาซากุสะ (Asakusa / 浅草)</b></li>
+            <li><b>10:00 – 12:30:</b> 🎁 ช้อปปิ้งและรับประทานอาหารกลางวันที่ <b>ตลาดอะเมโยโกะ (Ameyoko Market / アメ横)</b></li>
+            <li><b>12:30 – 14:30:</b> 🛍️ เวลาอิสระ – เก็บตกซื้อของฝากหรือนั่งพักที่คาเฟ่ในย่าน <b>อุเอโนะ (Ueno / 上野)</b></li>
+            <li><b>14:30 – 15:00:</b> 🧳 รับกระเป๋าที่โรงแรม</li>
+            <li><b>~15:20:</b> 🚄 นั่ง <b>Keisei Skyliner (京成スカイライナー)</b> ไปยังสนามบินนาริตะ</li>
+            <li><b>~16:10:</b> ✈️ ถึงสนามบินนาริตะ (Narita Airport / 成田空港)</li>
+            <li><b>18:55:</b> 🛫 เดินทางกลับกรุงเทพฯ (เที่ยวบิน NH805)</li>
+            <li><b>00:20 (23 พ.ย.):</b> 🛬 เดินทางถึงสนามบินสุวรรณภูมิโดยสวัสดิภาพ 🇹🇭</li>
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidePanel = document.getElementById('side-panel');
+            const overlay = document.getElementById('side-panel-overlay');
+            const closeBtn = document.getElementById('close-side-panel');
+            const panelTitle = document.getElementById('side-panel-title');
+            const panelContent = document.getElementById('side-panel-content');
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            timelineItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const day = this.dataset.day;
+                    const details = document.getElementById(`day-${day}-details`);
+                    const title = this.querySelector('h5').textContent;
+
+                    if (details) {
+                        panelTitle.textContent = title;
+                        panelContent.innerHTML = details.innerHTML;
+                        sidePanel.classList.add('side-panel-open');
+                        overlay.classList.remove('hidden');
+                    }
+                });
+            });
+
+            function closePanel() {
+                sidePanel.classList.remove('side-panel-open');
+                overlay.classList.add('hidden');
+            }
+
+            closeBtn.addEventListener('click', closePanel);
+            overlay.addEventListener('click', closePanel);
+        });
+    </script>
 
 </body>
 
