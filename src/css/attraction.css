@@ -1,0 +1,51 @@
+.attraction-card-horizontal {
+  display: flex;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.attraction-image-horizontal {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.attraction-details-horizontal {
+  padding: 0.75rem;
+}
+
+.attraction-card-horizontal.no-image .attraction-image-horizontal {
+  display: none;
+}
+
+.attraction-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.attraction-description {
+  color: #666;
+}
+
+#close-side-panel {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: #f56565;
+    border-radius: 50%;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #fff;
+}
+
+#close-side-panel:hover {
+    background-color: #e53e3e;
+}
+
+.time {
+  color: #333;
+}
