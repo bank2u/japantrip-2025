@@ -3,7 +3,7 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   overflow: hidden;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .attraction-details-horizontal {
-  padding: 0.75rem;
+  padding: 0.5rem;
 }
 
 .attraction-card-horizontal.no-image .attraction-image-horizontal {
@@ -22,13 +22,14 @@
 }
 
 .attraction-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .attraction-description {
   color: #666;
+  font-size: 0.9rem;
 }
 
 #close-side-panel {
