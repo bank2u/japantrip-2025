@@ -315,39 +315,7 @@
         </ul>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const sidePanel = document.getElementById('side-panel');
-            const overlay = document.getElementById('side-panel-overlay');
-            const closeBtn = document.getElementById('close-side-panel');
-            const panelTitle = document.getElementById('side-panel-title');
-            const panelContent = document.getElementById('side-panel-content');
-            const timelineItems = document.querySelectorAll('.timeline-item');
-
-            timelineItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    const day = this.dataset.day;
-                    const details = document.getElementById(`day-${day}-details`);
-                    const title = this.querySelector('h5').textContent;
-
-                    if (details) {
-                        panelTitle.textContent = title;
-                        panelContent.innerHTML = details.innerHTML;
-                        sidePanel.classList.add('side-panel-open');
-                        overlay.classList.remove('hidden');
-                    }
-                });
-            });
-
-            function closePanel() {
-                sidePanel.classList.remove('side-panel-open');
-                overlay.classList.add('hidden');
-            }
-
-            closeBtn.addEventListener('click', closePanel);
-            overlay.addEventListener('click', closePanel);
-        });
-    </script>
+    <script src="main.js"></script>
 
 </body>
 
