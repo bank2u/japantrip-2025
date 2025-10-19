@@ -33,7 +33,7 @@ describe('Header Minimization E2E', () => {
 
   test('header should minimize on scroll', async () => {
     await page.goto(`http://localhost:${SERVER_PORT}/index.html`);
-    await page.addScriptTag({ path: 'load_components.js' });
+    await page.addScriptTag({ path: 'src/js/load_components.js' });
     await page.waitForFunction(() => document.querySelector('header'));
 
     const initialHeaderHeight = await page.$eval('header', header => header.offsetHeight);

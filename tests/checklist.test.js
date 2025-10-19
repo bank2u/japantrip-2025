@@ -9,7 +9,7 @@ const { JSDOM } = require('jsdom');
 // Helper function to set up the test environment
 const setupTestEnvironment = (localStorageState = {}) => {
   const html = fs.readFileSync(path.resolve(__dirname, '../checklist.html'), 'utf8');
-  const checklistScript = fs.readFileSync(path.resolve(__dirname, '../checklist.js'), 'utf8');
+  const checklistScript = fs.readFileSync(path.resolve(__dirname, '../src/js/checklist.js'), 'utf8');
 
   const dom = new JSDOM(html, {
     runScripts: 'outside-only',
