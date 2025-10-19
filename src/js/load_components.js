@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Load header
-    loadHTML('header.html', 'header-placeholder', function(headerPlaceholder, headerElement) {
+    loadHTML('src/html/header.html', 'header-placeholder', function(headerPlaceholder, headerElement) {
         const h1Content = headerPlaceholder.dataset.h1;
         const h2Content = headerPlaceholder.dataset.h2;
 
@@ -70,5 +70,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Load footer
-    loadHTML('footer.html', 'footer-placeholder');
+    loadHTML('src/html/footer.html', 'footer-placeholder');
 });
