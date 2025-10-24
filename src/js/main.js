@@ -5,16 +5,29 @@ document.addEventListener('DOMContentLoaded', function () {
     const panelTitle = document.getElementById('side-panel-title');
     const panelContent = document.getElementById('side-panel-content');
     const timelineItems = document.querySelectorAll('.timeline-item');
+    let currentDetail = null;
 
     timelineItems.forEach(item => {
         item.addEventListener('click', function () {
             const day = this.dataset.day;
-            const details = document.getElementById(`day-${day}-details`);
+            const detail = document.getElementById(`day-${day}-details`);
             const title = this.querySelector('h5').textContent;
 
-            if (details) {
+            if (detail) {
+                if (currentDetail) {
+                    document.body.appendChild(currentDetail);
+                    currentDetail.style.display = 'none';
+                }
+
                 panelTitle.textContent = title;
-                panelContent.innerHTML = details.innerHTML;
+                panelContent.appendChild(detail);
+                detail.style.display = 'block';
+                currentDetail = detail;
+
+                panelContent.classList.remove('panel-content-fade-in');
+                void panelContent.offsetWidth; // Trigger reflow
+                panelContent.classList.add('panel-content-fade-in');
+
                 sidePanel.classList.add('side-panel-open');
                 overlay.classList.remove('hidden');
             }
@@ -24,6 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
     function closePanel() {
         sidePanel.classList.remove('side-panel-open');
         overlay.classList.add('hidden');
+
+        if (currentDetail) {
+            document.body.appendChild(currentDetail);
+            currentDetail.style.display = 'none';
+            currentDetail = null;
+            panelContent.classList.remove('panel-content-fade-in');
+        }
     }
 
     closeBtn.addEventListener('click', closePanel);

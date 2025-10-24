@@ -281,3 +281,12 @@ header.header-minimized nav {
 .timeline-item {
     cursor: pointer;
 }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.panel-content-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
