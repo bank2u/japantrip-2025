@@ -206,6 +206,16 @@ header.header-minimized nav {
         padding: 0.2rem 0.5rem; /* Even smaller padding */
         font-size: 0.7rem; /* Even smaller font size for buttons */
     }
+
+    #side-panel .p-6 {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    #side-panel-content {
+        overflow-y: auto;
+        flex-grow: 1;
+    }
 }
 
 .header-minimized-title {
